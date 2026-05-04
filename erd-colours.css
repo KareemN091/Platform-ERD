@@ -1,0 +1,200 @@
+/*
+  ERD Cluster Colours — Mermaid ER Diagram
+  =========================================
+  Drop this file alongside your ERD_Diagram.mmd in your repository.
+  Apply it wherever Mermaid is rendered with custom CSS support
+  (e.g. a docs site, GitLab Pages, MkDocs, Docusaurus, etc.)
+
+  Cluster → Colour mapping:
+    Core / Auth            → Blue   (#185FA5 header, #E6F1FB fill)
+    Permissions & Roles    → Purple (#534AB7 header, #EEEDFE fill)
+    Angels Circle          → Green  (#3B6D11 header, #EAF3DE fill)
+    Mentors Circle         → Teal   (#0F6E56 header, #E1F5EE fill)
+    Startup / Alumni       → Amber  (#854F0B header, #FAEEDA fill)
+    Data Room              → Pink   (#993556 header, #FBEAF0 fill)
+    Application Pipeline   → Orange (#993C1D header, #FAECE7 fill)
+*/
+
+/* ── Shared entity defaults ─────────────────────────────────────────────── */
+.er.entityBox {
+  stroke-width: 1.5px;
+  rx: 6;
+  ry: 6;
+}
+.er.attributeBoxEven,
+.er.attributeBoxOdd {
+  stroke: #DDDDDD;
+  stroke-width: 0.5px;
+}
+.er.relationshipLabelBox {
+  fill: #FFFFFF;
+  opacity: 0.85;
+}
+.er.relationshipLine {
+  stroke: #999999;
+  stroke-width: 1.2px;
+  stroke-dasharray: 5 3;
+}
+
+/* ── Core / Auth — Blue ─────────────────────────────────────────────────── */
+/* Tables: User, AuthToken, AuthSession, Organization,
+           Membership, AuditTrail, DemographicData        */
+.er.entityBox[id*="User"],
+.er.entityBox[id*="AuthToken"],
+.er.entityBox[id*="AuthSession"],
+.er.entityBox[id*="Organization"],
+.er.entityBox[id*="Membership"],
+.er.entityBox[id*="AuditTrail"],
+.er.entityBox[id*="DemographicData"] {
+  fill: #E6F1FB;
+  stroke: #378ADD;
+}
+g[id*="User"] .er.entityLabel,
+g[id*="AuthToken"] .er.entityLabel,
+g[id*="AuthSession"] .er.entityLabel,
+g[id*="Organization"] .er.entityLabel,
+g[id*="Membership"] .er.entityLabel,
+g[id*="AuditTrail"] .er.entityLabel,
+g[id*="DemographicData"] .er.entityLabel {
+  fill: #FFFFFF;
+}
+g[id*="User"] .er.entityBox:first-of-type,
+g[id*="AuthToken"] .er.entityBox:first-of-type,
+g[id*="AuthSession"] .er.entityBox:first-of-type,
+g[id*="Organization"] .er.entityBox:first-of-type,
+g[id*="Membership"] .er.entityBox:first-of-type,
+g[id*="AuditTrail"] .er.entityBox:first-of-type,
+g[id*="DemographicData"] .er.entityBox:first-of-type {
+  fill: #185FA5;
+  stroke: #185FA5;
+}
+
+/* ── Permissions & Roles — Purple ───────────────────────────────────────── */
+/* Tables: Role, Permission, RolePermission, ProgramTrack */
+.er.entityBox[id*="Role"],
+.er.entityBox[id*="Permission"],
+.er.entityBox[id*="RolePermission"],
+.er.entityBox[id*="ProgramTrack"] {
+  fill: #EEEDFE;
+  stroke: #7F77DD;
+}
+g[id*="Role"] .er.entityLabel,
+g[id*="Permission"] .er.entityLabel,
+g[id*="RolePermission"] .er.entityLabel,
+g[id*="ProgramTrack"] .er.entityLabel {
+  fill: #FFFFFF;
+}
+g[id*="Role"] .er.entityBox:first-of-type,
+g[id*="Permission"] .er.entityBox:first-of-type,
+g[id*="RolePermission"] .er.entityBox:first-of-type,
+g[id*="ProgramTrack"] .er.entityBox:first-of-type {
+  fill: #534AB7;
+  stroke: #534AB7;
+}
+
+/* ── Angels Circle — Green ──────────────────────────────────────────────── */
+/* Tables: Angel, AngelOTP */
+.er.entityBox[id*="Angel"],
+.er.entityBox[id*="AngelOTP"] {
+  fill: #EAF3DE;
+  stroke: #639922;
+}
+g[id*="Angel"] .er.entityLabel,
+g[id*="AngelOTP"] .er.entityLabel {
+  fill: #FFFFFF;
+}
+g[id*="Angel"] .er.entityBox:first-of-type,
+g[id*="AngelOTP"] .er.entityBox:first-of-type {
+  fill: #3B6D11;
+  stroke: #3B6D11;
+}
+
+/* ── Mentors Circle — Teal ──────────────────────────────────────────────── */
+/* Tables: Mentor, IndustryTag, ExpertiseTag, GeographyTag,
+           MentorIndustryMap, MentorExpertiseMap, MentorGeographyMap */
+.er.entityBox[id*="Mentor"],
+.er.entityBox[id*="IndustryTag"],
+.er.entityBox[id*="ExpertiseTag"],
+.er.entityBox[id*="GeographyTag"],
+.er.entityBox[id*="MentorIndustryMap"],
+.er.entityBox[id*="MentorExpertiseMap"],
+.er.entityBox[id*="MentorGeographyMap"] {
+  fill: #E1F5EE;
+  stroke: #1D9E75;
+}
+g[id*="Mentor"] .er.entityLabel,
+g[id*="IndustryTag"] .er.entityLabel,
+g[id*="ExpertiseTag"] .er.entityLabel,
+g[id*="GeographyTag"] .er.entityLabel,
+g[id*="MentorIndustryMap"] .er.entityLabel,
+g[id*="MentorExpertiseMap"] .er.entityLabel,
+g[id*="MentorGeographyMap"] .er.entityLabel {
+  fill: #FFFFFF;
+}
+g[id*="Mentor"] .er.entityBox:first-of-type,
+g[id*="IndustryTag"] .er.entityBox:first-of-type,
+g[id*="ExpertiseTag"] .er.entityBox:first-of-type,
+g[id*="GeographyTag"] .er.entityBox:first-of-type,
+g[id*="MentorIndustryMap"] .er.entityBox:first-of-type,
+g[id*="MentorExpertiseMap"] .er.entityBox:first-of-type,
+g[id*="MentorGeographyMap"] .er.entityBox:first-of-type {
+  fill: #0F6E56;
+  stroke: #0F6E56;
+}
+
+/* ── Startup / Alumni Stage — Amber ─────────────────────────────────────── */
+/* Tables: Startup */
+.er.entityBox[id*="Startup"] {
+  fill: #FAEEDA;
+  stroke: #BA7517;
+}
+g[id*="Startup"] .er.entityLabel {
+  fill: #FFFFFF;
+}
+g[id*="Startup"] .er.entityBox:first-of-type {
+  fill: #854F0B;
+  stroke: #854F0B;
+}
+
+/* ── Data Room — Pink ───────────────────────────────────────────────────── */
+/* Tables: DataRoom, DataRoomDocument, DataRoomLink */
+.er.entityBox[id*="DataRoom"],
+.er.entityBox[id*="DataRoomDocument"],
+.er.entityBox[id*="DataRoomLink"] {
+  fill: #FBEAF0;
+  stroke: #D4537E;
+}
+g[id*="DataRoom"] .er.entityLabel,
+g[id*="DataRoomDocument"] .er.entityLabel,
+g[id*="DataRoomLink"] .er.entityLabel {
+  fill: #FFFFFF;
+}
+g[id*="DataRoom"] .er.entityBox:first-of-type,
+g[id*="DataRoomDocument"] .er.entityBox:first-of-type,
+g[id*="DataRoomLink"] .er.entityBox:first-of-type {
+  fill: #993556;
+  stroke: #993556;
+}
+
+/* ── Application Pipeline — Orange ──────────────────────────────────────── */
+/* Tables: Application, Question, QuestionBranch, Response */
+.er.entityBox[id*="Application"],
+.er.entityBox[id*="Question"],
+.er.entityBox[id*="QuestionBranch"],
+.er.entityBox[id*="Response"] {
+  fill: #FAECE7;
+  stroke: #D85A30;
+}
+g[id*="Application"] .er.entityLabel,
+g[id*="Question"] .er.entityLabel,
+g[id*="QuestionBranch"] .er.entityLabel,
+g[id*="Response"] .er.entityLabel {
+  fill: #FFFFFF;
+}
+g[id*="Application"] .er.entityBox:first-of-type,
+g[id*="Question"] .er.entityBox:first-of-type,
+g[id*="QuestionBranch"] .er.entityBox:first-of-type,
+g[id*="Response"] .er.entityBox:first-of-type {
+  fill: #993C1D;
+  stroke: #993C1D;
+}
