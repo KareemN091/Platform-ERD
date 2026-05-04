@@ -196,6 +196,13 @@ erDiagram
   }
 
   %% ── APPLICATION PIPELINE ─────────────────────────────────────────────────
+  KanbanStage {
+    uuid id PK
+    uuid track_id FK
+    varchar name
+    integer position
+    boolean is_terminal
+  }  
   Application {
     uuid id PK
     uuid organization_id FK
@@ -231,6 +238,16 @@ erDiagram
     timestamp created_at
   }
 
+  ReviewScore {
+    uuid id PK
+    uuid application_id FK
+    uuid reviewer_id FK
+    jsonb rubric
+    integer total_score
+    text notes
+    timestamp submitted_at
+  }
+
   %% ── RELATIONSHIPS ────────────────────────────────────────────────────────
   User ||--o{ AuthToken : "owns"
   User ||--o{ AuthSession : "starts"
@@ -241,6 +258,7 @@ erDiagram
   User ||--o| Mentor : "has"
   User ||--o{ Startup : "owns"
   User ||--o{ DataRoomLink : "created by"
+  User ||--o{ ReviewScore : "submits"
 
   Organization ||--o{ Membership : "has"
   Organization ||--o{ AuditTrail : "records"
@@ -252,6 +270,7 @@ erDiagram
   ProgramTrack ||--o{ Startup : "categorizes"
   ProgramTrack ||--o{ Application : "has"
   ProgramTrack ||--o{ Question : "has"
+  ProgramTrack ||--o{ KanbanStage : "defines"
 
   Angel ||--o{ AngelOTP : "authenticates via"
 
@@ -266,6 +285,8 @@ erDiagram
   DataRoom ||--o{ DataRoomDocument : "contains"
   DataRoom ||--o{ DataRoomLink : "generates"
 
+  KanbanStage ||--o{ Application : "contains"
   Application ||--o{ Response : "contains"
+  Application ||--o{ ReviewScore : "scored by"
   Question ||--o{ Response : "answered by"
   Question ||--o{ QuestionBranch : "branches to"
